@@ -1,0 +1,144 @@
+@use "sass:map";
+
+// Paleta de colores para modo oscuro: fondo negro, acentos en azul, mostaza, naranja y rojo
+$colors: (
+  // === COLORES DE MARCA (BRANDING) ===
+  primary: #093956,
+  // Azul prusia claro - color principal
+  primary-light: #082C43,
+  // Azul prusia oscuro - hover, barras
+  secondary: #1470a6,
+  // Azul medio - botones secundarios
+  accent: #E6B500,
+  // Mostaza cálida - acento principal
+  highlight: #FF8C00,
+  // Naranja vibrante - destacados, CTA
+  danger: #FF3B30,
+  // Rojo vivo - errores, alertas, acciones críticas
+
+  // === NEUTROS: Texto y estructura ===
+  black1: #000000,
+  // Negro puro - fondo base
+  black2: #111827,
+  // Gris carbón - superficies oscuras
+  black3: #1F2937,
+  // Gris azulado oscuro - fondo de cards
+
+  // === GRIS: Escala de textos y fondos suaves ===
+  gray0: #CBD5E1,
+  // Gris claro - texto secundario en modo claro
+  gray1: #DBDBE6,
+  gray2: #DCDCE3,
+  gray3: #CFE2DB,
+  gray4: #707070,
+  gray5: #748F99,
+  gray6: #64748B,
+  gray7: #475569,
+  // Texto secundario en modo claro
+  gray8: #94A3B8,
+
+  // === BLANCOS: Texto y superficies claras ===
+  white1: #FFFFFF,
+  // Blanco puro - texto principal
+  white2: #FEFEFE,
+  white3: #F2F2F2,
+  bg-gray1: #1E1E1E,
+  // Gris oscuro - fondo de cards
+  bg-gray2: #2D2D2D,
+  // Gris intermedio oscuro
+
+  // === COLORES DE ESTADO (feedback) ===
+  success: #10B981,
+  // Verde esmeralda - éxito
+  error: #EF4444,
+  // Rojo moderno - errores
+  warning: #F59E0B,
+  // Ámbar dorado - advertencias
+  info: #3B82F6,
+  // Azul claro - información
+
+  // === COLORES AZULES (Tailwind-like) ===
+  blue400: #60A5FA,
+  // Azul claro - texto, enlaces
+  blue600: #3B82F6,
+  // Azul estándar
+  blue700: #2563EB,
+  // Azul oscuro
+
+  // === NARANJA Y ROJO (acentos fuertes) ===
+  orange500: #FF8C00,
+  // Naranja vibrante
+  orange600: #E67E00,
+  red500: #FF3B30,
+  // Rojo vivo
+  red600: #E62B20,
+
+  // === COLOR PERSONALIZADO ===
+  custom-cursor-blue: #3182ce,
+  // Azul para hover
+
+  // === COLORES BASE (para referencias) ===
+  silver0: #C7C5C4,
+  // Gris plateado - detalles
+  platinum: #EBE9E8,
+  // Fondo claro (para modo claro)
+  dim-gray: #646C71 // Gris neutro
+);
+
+@function color($color-name) {
+  @if not map.has-key($colors, $color-name) {
+    @warn "El color `#{$color-name}` no existe en el mapa de colores.";
+  }
+
+  @return map.get($colors, $color-name);
+}
+
+// Breakpoints - Mobile First
+$mobile-small: 320px;
+$mobile: 375px;
+$tablet: 768px;
+$desktop: 1024px;
+$desktop-large: 1440px;
+$desktop-xl: 1920px;
+
+// Typography
+$font-size-title: 5.125rem; // 82px
+$font-size-text: 1.25rem; // 20px
+$font-size-sm: 0.875rem; // 14px
+$font-size-ultra-sm: 0.75rem; // 12px
+
+// Responsive typography
+$font-size-title-mobile: 2.5rem; // 40px
+$font-size-text-mobile: 1rem; // 16px
+
+// Layout
+$padding-box: 0 24px;
+$margin-box: 0px;
+$container-max-width: 1200px;
+
+// UI Elements
+$borderRadius: 12px;
+$borderRadius-sm: 6px;
+$borderRadius-lg: 16px;
+
+// Transitions
+$transitionDuration: 0.2s;
+$transitionEasing: ease-in-out;
+
+// Spacing scale (múltiplos de 8px)
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+
+// Z-index scale
+$z-dropdown: 1000;
+$z-modal: 1050;
+$z-tooltip: 1070;
+
+// PrimeNG compatibility (si los necesitas)
+/* $prime-mixins1: 992px;
+$prime-mixins2: 991px; */
+$scale: 14px;
